@@ -1,0 +1,20 @@
+<div class="banner">
+  <div class="container">
+    <h1>Le Wagon Exercise: <strong>Watch List</strong>!</h1>
+    <p>Adding a New List</p>
+  </div>
+</div>
+<div class="container mt-3 col-12">
+  <h2>Create a new List Form</h1>
+  <%= form_with model: @list do |f| %>
+  <div class="form-group">
+    <%= f.label :name, { class: "form-label" } %>
+    <%= f.text_field :name, { class: "form-control", placeholder: "Name of the List" } %>
+  </div>
+  <div class="form-group">
+  <%= f.label :img_url, { class: "form-label" }  %>
+  <%= f.text_field :img_url, { class: "form-control", placeholder: "Url of the image for the List" } %>
+  </div>
+  <%= f.submit %>
+<% end %>
+</div>

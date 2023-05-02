@@ -1,0 +1,30 @@
+<div class="banner">
+  <div class="container">
+    <h1>Le Wagon Exercise: <strong>Watch List</strong>!</h1>
+    <p><%= @list.name %></p>
+  </div>
+</div>
+<div class="container mt-3 col-12">
+  <h2>My Lists</h1>
+    <% if @list.movies.empty?%>
+      <p> There's no movie yet</p>
+    <% else %>
+    <div class="row g-3">
+      <% @list.movies.each do |movie|%>
+        <div class="card-trip col-6">
+        <img src="<%= movie.poster_url %>" />
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= movie.title %></h2>
+            <p><%= movie.overview %></p>
+            <h2>"<%= movie.bookmarks.first.comment  %>"</h2>
+            <%= link_to "delete", bookmark_path(movie.bookmarks.first) %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+    <div class="row mt-2">
+      <%= link_to "Add a Movie", new_list_bookmark_path(@list.id), { class:"btn btn-primary" } %>
+    </div>
+</div>

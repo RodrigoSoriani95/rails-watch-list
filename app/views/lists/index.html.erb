@@ -1,0 +1,24 @@
+<div class="banner">
+  <div class="container">
+    <h1>Le Wagon Exercise: <strong>Watch List</strong>!</h1>
+    <p>My lists</p>
+  </div>
+</div>
+<div class="container mt-4">
+    <h2>My Lists</h1>
+    <% if @lists.empty?%>
+      <p> There's no list yet</p>
+    <% else %>
+    <div class="row g-2">
+      <% @lists.each do |list|%>
+      <div class="col-4 mt-3 mr-3 card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.img_url%>)">
+        <%= link_to list.name, list_path(list.id) %>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+    <hr>
+    <div class="row">
+      <%= link_to "Add a New List", new_list_path, { class:"btn btn-primary" } %>
+    </div>
+  </div>

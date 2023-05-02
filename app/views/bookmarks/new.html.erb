@@ -1,0 +1,13 @@
+<div class="banner">
+  <div class="container">
+    <h1>Le Wagon Exercise: <strong>Watch List</strong>!</h1>
+    <p>Adding a Movie into #<%= @list.id %> List</p>
+  </div>
+</div>
+<div class="container">
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.input :movie, collection: Movie.all %>
+    <%= f.submit %>
+  <% end %>
+</div>
