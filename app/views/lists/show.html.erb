@@ -17,8 +17,8 @@
           <div>
             <h2><%= movie.title %></h2>
             <p><%= movie.overview %></p>
-            <h2>"<%= movie.bookmarks.first.comment  %>"</h2>
-            <%= link_to "delete", bookmark_path(movie.bookmarks.first) %>
+            <h2>"<%= Bookmark.find_by(movie_id: movie.id).comment %>"</h2>
+            <%= link_to "Delete", bookmark_path(movie.bookmarks.first), data: { turbo_method: :delete } %>
           </div>
         </div>
       </div>
